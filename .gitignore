@@ -4,9 +4,6 @@
 # Ignore data
 data/
 
-# Ignore models
-models/
-
 # Ignore compiled Python files
 __pycache__/
 *.pyc
