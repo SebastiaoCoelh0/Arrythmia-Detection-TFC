@@ -17,7 +17,7 @@ def plot_confusion_matrix(y_true, y_pred, model_name="", df_name=""):
     cm = confusion_matrix(y_true, y_pred)
     disp = ConfusionMatrixDisplay(confusion_matrix=cm)
     disp.plot(cmap=plt.cm.Blues)
-    plt.title(f"Matriz de Confusão - {model_name} - {df_name}")
+    plt.title(f"Confusion Matrix - {model_name} - {df_name}")
     plt.show()
 
 
@@ -45,7 +45,7 @@ def rr_metrics(r_peaks, fs=500, metricas_complexas=False):
                 "sd2": np.sqrt(2 * np.std(rr) ** 2 - np.std(np.diff(rr)) ** 2 / 2)
             })
         except Exception as e:
-            # Se der erro (ex: sqrt negativo ou outro), mete None
+            # If there's an error in calculating complex metrics, set them to None
             metrics.update({
                 "sample_entropy": None,
                 "sd1": None,
