@@ -7,3 +7,9 @@ data/
 # Ignore compiled Python files
 __pycache__/
 *.pyc
+
+# Ignore project-specific settings
+.idea/
+
+# Ignore test folder with old dataset
+brno/

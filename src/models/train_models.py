@@ -80,8 +80,8 @@ def train_and_select_best_model(models, X_train, y_train, X_test, y_test, df_nam
         print(f"- Best F1-score: {best_f1:.4f}")
 
         if save:
-            root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-            models_dir = os.path.join(root_dir, "models")
+            project_root = os.path.abspath(os.path.join(__file__, "..", "..", ".."))
+            models_dir = os.path.join(project_root, "models")
             os.makedirs(models_dir, exist_ok=True)
             joblib.dump(best_model, os.path.join(models_dir, f"{prefix}_{best_name.lower()}_f1_{best_f1:.2f}.joblib"))
             print(f"- Saved best model: {best_name} (F1: {best_f1:.4f})")

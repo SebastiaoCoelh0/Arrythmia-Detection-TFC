@@ -1,6 +1,5 @@
-from src.processing.rr_features import extract_peaks_find_peaks, extract_peaks_neurokit, extract_peaks_pan_tompkins, \
-    filter_peaks, plot_signals_with_r_peaks, add_diagnosis_column, add_rr_metrics_to_df
-from src.model.train_models import split_features_target, model_weight_balanced, model_undersampling, train_test_split, \
+from src.features.rr_features import extract_peaks_neurokit, filter_peaks, add_diagnosis_column, add_rr_metrics_to_df
+from src.models.train_models import split_features_target, model_weight_balanced, model_undersampling, train_test_split, \
     df_info, model_default
 import pandas as pd
 import os
