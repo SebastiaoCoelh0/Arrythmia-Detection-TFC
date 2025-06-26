@@ -7,7 +7,7 @@ from sklearn.metrics import classification_report, f1_score
 from imblearn.under_sampling import RandomUnderSampler
 import numpy as np
 import os
-from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
+from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay, roc_auc_score
 import joblib
 import matplotlib.pyplot as plt
 
@@ -60,13 +60,15 @@ def train_and_select_best_model(models, X_train, y_train, X_test, y_test, df_nam
     best_model = None
     best_name = ""
     best_f1 = -1
+    best_auc = -1
 
     for name, model in models.items():
         model.fit(X_train, y_train)
         y_pred = model.predict(X_test)
         f1 = f1_score(y_test, y_pred)
+        auc = roc_auc_score(y_test, y_pred)
 
-        print(f"Model: {name} | F1-score: {f1:.4f}")
+        print(f"Model: {name} | F1-score: {f1:.4f} | AUC: {auc:.4f}")
         print(classification_report(y_test, y_pred))
         plot_confusion_matrix(y_test, y_pred, model_name=name, df_name=df_name)
 
@@ -74,10 +76,11 @@ def train_and_select_best_model(models, X_train, y_train, X_test, y_test, df_nam
             best_f1 = f1
             best_model = model
             best_name = name
+            best_auc = auc
 
     if best_model is not None:
         print(f"\n- Best model: {best_name}")
-        print(f"- Best F1-score: {best_f1:.4f}")
+        print(f"- Best F1-score: {best_f1:.4f} | Best AUC: {best_auc:.4f}")
 
         if save:
             project_root = os.path.abspath(os.path.join(__file__, "..", "..", ".."))

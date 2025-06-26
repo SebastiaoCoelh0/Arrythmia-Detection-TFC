@@ -39,7 +39,7 @@ TFC/
 
 Final Project developed for the Bachelor's Degree in Information Technology Management at Universidade Lusófona, under
 the
-supervision of Professor Iolanda Velho, co-supervision of Professor Lúcio Studer and Dr. Luís Rosário<ul />
+supervision of Professor Iolanda Velho, co-supervision of Professor Lúcio Studer and Dr. Luís Rosário.<ul />
 This project aims to develop a Machine Learning model capable of identifying
 **abnormal heart rhythms** based on **Heart Rate Variability (HRV)**, using **short duration ECG records** (10 seconds).
 

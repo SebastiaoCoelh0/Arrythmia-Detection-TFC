@@ -23,6 +23,11 @@ def main():
     df = add_diagnosis_column(df,
                               target_diagnoses=["AFIB", "AF", "SA", "APB", "VPB", "ABI", "VB", "JEB", "VEB", "JPT",
                                                 "VET", "WAVN", "SAAWR"])
+
+    # Print head and info of the DataFrame
+    print(df.head())
+    print(df.info())
+
     # Train-test split
     X_train, X_test, y_train, y_test = split_features_target(df)
 
